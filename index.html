@@ -1,0 +1,665 @@
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Ebook Pengembangan Diri, Motivasi &amp; Gaya Hidup
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;family=Roboto&amp;display=swap" rel="stylesheet"/>
+  <style>
+   html,
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+    /* Blur premium effect container */
+    .blur-container {
+      backdrop-filter: blur(20px);
+      background-color: rgba(255 255 255 / 0.15);
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: 1px solid rgba(255 255 255 / 0.18);
+      transition: background-color 0.5s ease;
+    }
+    /* Micro animation for buttons and links */
+    .micro-animate {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .micro-animate:hover,
+    .micro-animate:focus {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+      outline: none;
+    }
+    /* Smooth fade transition for pages */
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .fade-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-exit-active {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(255 255 255 / 0.1);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255 255 255 / 0.3);
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255 255 255 / 0.5);
+    }
+  </style>
+ </head>
+ <body class="min-h-screen flex flex-col bg-gradient-to-tr from-indigo-900 via-purple-900 to-pink-900 text-white" style="--bg-color: #1e1e2f; --text-color: #f0f0f5;">
+  <div class="flex flex-col flex-grow max-w-5xl mx-auto w-full p-4 sm:p-6 md:p-10" id="app">
+   <!-- Header -->
+   <header class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl sm:text-4xl font-playfair tracking-wide select-none drop-shadow-lg">
+     Ebook Pengembangan Diri
+     <span class="text-pink-400">
+      Motivasi &amp; Gaya Hidup
+     </span>
+    </h1>
+    <button aria-label="Buka Pengaturan" class="micro-animate text-white hover:text-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 rounded" id="btn-settings">
+     <i class="fas fa-cog fa-lg">
+     </i>
+    </button>
+   </header>
+   <!-- Main content container -->
+   <main class="relative flex-grow overflow-auto rounded-lg blur-container p-6 shadow-lg" style="min-height: 60vh;">
+    <!-- Pages will be injected here -->
+   </main>
+   <!-- Footer -->
+   <footer class="mt-8 text-center text-sm text-white/50 select-none">
+    © 2024 Ebook Pengembangan Diri &amp; Motivasi &amp; Gaya Hidup. All rights reserved.
+   </footer>
+  </div>
+  <!-- Templates for pages -->
+  <template id="page-home">
+   <section class="flex flex-col space-y-8">
+    <h2 class="text-2xl sm:text-3xl font-playfair mb-4 text-center drop-shadow-md">
+     Pilih Topik yang Ingin Anda Baca
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+     <button class="micro-animate relative rounded-xl overflow-hidden shadow-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-pink-400" data-topic="pengembangan-diri" style="background: linear-gradient(135deg, #6b46c1, #b83280);">
+      <img alt="Ilustrasi orang yang sedang bermeditasi dan merenung di alam terbuka dengan latar belakang pegunungan dan langit biru cerah" class="w-full h-48 object-cover brightness-90 transition-transform duration-500 ease-in-out group-hover:scale-105" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1a738697-9bc0-4780-f602-eedaecffa94c.jpg" width="400"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+       <h3 class="text-xl font-semibold text-white drop-shadow-lg">
+        Pengembangan Diri
+       </h3>
+      </div>
+     </button>
+     <button class="micro-animate relative rounded-xl overflow-hidden shadow-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-pink-400" data-topic="motivasi" style="background: linear-gradient(135deg, #d53f8c, #ed64a6);">
+      <img alt="Ilustrasi seseorang yang mengangkat tangan ke langit dengan latar belakang matahari terbit yang penuh warna oranye dan merah" class="w-full h-48 object-cover brightness-90 transition-transform duration-500 ease-in-out group-hover:scale-105" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9d81fd9f-787e-4fb4-b8c7-0639ab760d27.jpg" width="400"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+       <h3 class="text-xl font-semibold text-white drop-shadow-lg">
+        Motivasi
+       </h3>
+      </div>
+     </button>
+     <button class="micro-animate relative rounded-xl overflow-hidden shadow-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-pink-400" data-topic="gaya-hidup" style="background: linear-gradient(135deg, #805ad5, #b794f4);">
+      <img alt="Ilustrasi suasana santai di taman kota dengan orang-orang berolahraga, membaca buku, dan menikmati kopi di pagi hari" class="w-full h-48 object-cover brightness-90 transition-transform duration-500 ease-in-out group-hover:scale-105" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/a1d7fae5-883f-4411-738c-ce9faeeb7704.jpg" width="400"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+       <h3 class="text-xl font-semibold text-white drop-shadow-lg">
+        Gaya Hidup
+       </h3>
+      </div>
+     </button>
+    </div>
+   </section>
+  </template>
+  <template id="page-content">
+   <section class="flex flex-col space-y-6">
+    <button aria-label="Kembali ke halaman utama" class="self-start micro-animate text-pink-400 hover:text-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-400 rounded" id="btn-back">
+     <i class="fas fa-arrow-left mr-2">
+     </i>
+     Kembali
+    </button>
+    <h2 class="text-3xl font-playfair mb-4 drop-shadow-md" id="content-title">
+    </h2>
+    <div class="space-y-6 leading-relaxed text-lg max-w-none" id="content-body">
+    </div>
+    <div class="flex flex-col sm:flex-row sm:justify-between items-center mt-8 gap-4">
+     <div class="flex items-center space-x-2">
+      <button aria-label="Tambahkan atau hapus bookmark" class="micro-animate text-yellow-400 hover:text-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded" id="btn-bookmark">
+       <i class="far fa-bookmark fa-lg">
+       </i>
+       <span id="bookmark-text">
+        Bookmark
+       </span>
+      </button>
+      <button aria-label="Tampilkan atau sembunyikan catatan" class="micro-animate text-pink-400 hover:text-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-400 rounded" id="btn-notes-toggle">
+       <i class="fas fa-sticky-note fa-lg">
+       </i>
+       Catatan
+      </button>
+     </div>
+     <div class="flex-grow max-w-xl">
+      <input aria-label="Cari dalam konten" class="w-full rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-pink-400" id="search-content" placeholder="Cari dalam topik ini..." type="search"/>
+     </div>
+    </div>
+    <textarea aria-label="Area catatan" class="mt-4 w-full rounded-md p-3 text-gray-900 resize-y hidden min-h-[100px]" id="notes-area" placeholder="Tulis catatan Anda di sini..."></textarea>
+   </section>
+  </template>
+  <template id="page-settings">
+   <section class="flex flex-col space-y-6 max-w-md mx-auto">
+    <h2 class="text-3xl font-playfair mb-4 text-center drop-shadow-md">
+     Pengaturan
+    </h2>
+    <form class="space-y-6" id="settings-form">
+     <div>
+      <label class="block mb-2 font-semibold text-white/90" for="font-select">
+       Pilih Font
+      </label>
+      <select class="w-full rounded-md p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-pink-400" id="font-select">
+       <option value="'Roboto', sans-serif">
+        Roboto (Modern)
+       </option>
+       <option value="'Playfair Display', serif">
+        Playfair Display (Elegan)
+       </option>
+       <option value="'Open Sans', sans-serif">
+        Open Sans (Bersih)
+       </option>
+       <option value="'Lora', serif">
+        Lora (Klasik)
+       </option>
+       <option value="'Montserrat', sans-serif">
+        Montserrat (Kontemporer)
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block mb-2 font-semibold text-white/90" for="font-size">
+       Ukuran Teks (px)
+      </label>
+      <input class="w-full rounded-md p-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-pink-400" id="font-size" max="28" min="12" step="1" type="number" value="18"/>
+     </div>
+     <div>
+      <label class="block mb-2 font-semibold text-white/90" for="bg-color">
+       Warna Latar Belakang
+      </label>
+      <input aria-label="Pilih warna latar belakang" class="w-full h-10 rounded-md p-1 cursor-pointer" id="bg-color" type="color" value="#1e1e2f"/>
+     </div>
+     <div>
+      <label class="block mb-2 font-semibold text-white/90" for="text-color">
+       Warna Teks
+      </label>
+      <input aria-label="Pilih warna teks" class="w-full h-10 rounded-md p-1 cursor-pointer" id="text-color" type="color" value="#f0f0f5"/>
+     </div>
+     <div>
+      <label class="block mb-2 font-semibold text-white/90" for="anim-speed">
+       Kecepatan Animasi (detik)
+      </label>
+      <input aria-label="Atur kecepatan animasi" class="w-full cursor-pointer" id="anim-speed" max="2" min="0.1" step="0.1" type="range" value="0.4"/>
+     </div>
+     <div class="flex justify-center space-x-4 pt-4">
+      <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded micro-animate focus:outline-none focus:ring-2 focus:ring-pink-400" type="submit">
+       Simpan
+      </button>
+      <button class="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-6 rounded micro-animate focus:outline-none focus:ring-2 focus:ring-pink-400" id="btn-settings-close" type="button">
+       Batal
+      </button>
+     </div>
+    </form>
+   </section>
+  </template>
+  <script>
+   (() => {
+      // Data konten ebook lengkap
+      const ebookContent = {
+        "pengembangan-diri": {
+          title: "Pengembangan Diri",
+          description:
+            "Tips dan strategi untuk meningkatkan kesadaran diri dan pengembangan pribadi, serta cara mengatasi hambatan dan mencapai tujuan.",
+          sections: [
+            {
+              heading: "Meningkatkan Kesadaran Diri",
+              paragraphs: [
+                "Kesadaran diri adalah fondasi utama dalam pengembangan pribadi. Mulailah dengan mengenali kekuatan dan kelemahan Anda secara jujur.",
+                "Latihan seperti meditasi, jurnal harian, dan refleksi diri dapat membantu meningkatkan kesadaran diri Anda.",
+                "Dengan kesadaran diri yang baik, Anda dapat membuat keputusan yang lebih tepat dan mengelola emosi dengan lebih efektif."
+              ],
+              tips: [
+                "Luangkan waktu setiap hari untuk merenung dan menulis perasaan Anda.",
+                "Gunakan feedback dari orang terdekat sebagai cermin untuk mengenali area yang perlu dikembangkan.",
+                "Praktikkan mindfulness untuk tetap fokus pada saat ini."
+              ]
+            },
+            {
+              heading: "Mengatasi Hambatan dan Mencapai Tujuan",
+              paragraphs: [
+                "Hambatan dalam pengembangan diri seringkali berupa rasa takut, keraguan, dan kebiasaan buruk.",
+                "Tetapkan tujuan yang spesifik, terukur, dapat dicapai, relevan, dan berbatas waktu (SMART).",
+                "Buat rencana aksi yang jelas dan evaluasi kemajuan Anda secara berkala."
+              ],
+              tips: [
+                "Pecah tujuan besar menjadi langkah-langkah kecil yang mudah dicapai.",
+                "Rayakan setiap pencapaian kecil untuk menjaga motivasi.",
+                "Jangan takut untuk meminta bantuan atau bimbingan dari mentor."
+              ]
+            }
+          ]
+        },
+        motivasi: {
+          title: "Motivasi",
+          description:
+            "Kata-kata motivasi dan inspirasi untuk meningkatkan semangat dan motivasi, serta tips dan strategi untuk mempertahankan motivasi dan mencapai tujuan.",
+          sections: [
+            {
+              heading: "Kata-kata Motivasi dan Inspirasi",
+              paragraphs: [
+                "Motivasi adalah bahan bakar yang mendorong kita untuk terus maju meskipun menghadapi rintangan.",
+                "Kutipan inspiratif dari tokoh terkenal dapat menjadi sumber semangat yang kuat.",
+                "Ingatlah bahwa setiap kegagalan adalah pelajaran berharga menuju kesuksesan."
+              ],
+              quotes: [
+                "\"Kesuksesan bukanlah kunci kebahagiaan. Kebahagiaan adalah kunci kesuksesan.\" – Albert Schweitzer",
+                "\"Jangan menunggu waktu yang tepat. Waktu yang tepat adalah sekarang.\" – Napoleon Hill",
+                "\"Kegagalan adalah kesempatan untuk memulai lagi dengan lebih cerdas.\" – Henry Ford"
+              ]
+            },
+            {
+              heading: "Mempertahankan Motivasi",
+              paragraphs: [
+                "Motivasi bisa naik turun, penting untuk memiliki strategi agar tetap konsisten.",
+                "Tetapkan rutinitas harian yang mendukung tujuan Anda.",
+                "Lingkungan yang positif dan dukungan sosial sangat membantu dalam mempertahankan motivasi."
+              ],
+              tips: [
+                "Gunakan visualisasi untuk membayangkan keberhasilan Anda.",
+                "Buat daftar alasan mengapa tujuan Anda penting.",
+                "Istirahat yang cukup dan jaga kesehatan fisik untuk energi yang optimal."
+              ]
+            }
+          ]
+        },
+        "gaya-hidup": {
+          title: "Gaya Hidup",
+          description:
+            "Tips dan strategi untuk meningkatkan kualitas hidup dan mencapai keseimbangan hidup, serta cara mengatasi stres dan meningkatkan kesejahteraan mental dan fisik.",
+          sections: [
+            {
+              heading: "Meningkatkan Kualitas Hidup",
+              paragraphs: [
+                "Kualitas hidup yang baik berasal dari keseimbangan antara pekerjaan, keluarga, dan waktu untuk diri sendiri.",
+                "Prioritaskan aktivitas yang membawa kebahagiaan dan makna dalam hidup Anda.",
+                "Jaga pola makan sehat dan rutin berolahraga untuk mendukung kesehatan fisik."
+              ],
+              tips: [
+                "Buat jadwal mingguan yang seimbang antara pekerjaan dan rekreasi.",
+                "Luangkan waktu untuk hobi dan aktivitas yang Anda sukai.",
+                "Pelajari teknik manajemen waktu untuk mengurangi stres."
+              ]
+            },
+            {
+              heading: "Mengatasi Stres dan Meningkatkan Kesejahteraan",
+              paragraphs: [
+                "Stres yang berlebihan dapat berdampak negatif pada kesehatan mental dan fisik.",
+                "Teknik relaksasi seperti pernapasan dalam, yoga, dan meditasi sangat efektif untuk mengurangi stres.",
+                "Bangun kebiasaan tidur yang baik untuk pemulihan tubuh dan pikiran."
+              ],
+              tips: [
+                "Identifikasi sumber stres dan cari solusi yang tepat.",
+                "Batasi penggunaan gadget sebelum tidur untuk kualitas tidur yang lebih baik.",
+                "Jaga hubungan sosial yang sehat dan komunikasikan perasaan Anda."
+              ]
+            }
+          ]
+        }
+      };
+
+      // State
+      let currentPage = "home"; // home, content, settings
+      let currentTopic = null;
+      let bookmarks = JSON.parse(localStorage.getItem("ebookBookmarks") || "{}");
+      let notes = JSON.parse(localStorage.getItem("ebookNotes") || "{}");
+      let settings = JSON.parse(localStorage.getItem("ebookSettings") || "{}");
+
+      // Elements
+      const app = document.getElementById("app");
+      const main = app.querySelector("main");
+      const btnSettings = document.getElementById("btn-settings");
+
+      // Load fonts dynamically for settings
+      const fontLinks = {
+        "'Roboto', sans-serif":
+          "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
+        "'Playfair Display', serif":
+          "https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap",
+        "'Open Sans', sans-serif":
+          "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
+        "'Lora', serif":
+          "https://fonts.googleapis.com/css2?family=Lora&display=swap",
+        "'Montserrat', sans-serif":
+          "https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      };
+
+      // Helpers
+      function saveBookmarks() {
+        localStorage.setItem("ebookBookmarks", JSON.stringify(bookmarks));
+      }
+      function saveNotes() {
+        localStorage.setItem("ebookNotes", JSON.stringify(notes));
+      }
+      function saveSettings() {
+        localStorage.setItem("ebookSettings", JSON.stringify(settings));
+      }
+
+      // Apply settings to document
+      function applySettings() {
+        if (settings.font) {
+          document.body.style.fontFamily = settings.font;
+          // Load font link if not loaded
+          if (!document.getElementById("font-link")) {
+            const link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.id = "font-link";
+            link.href = fontLinks[settings.font] || fontLinks["'Roboto', sans-serif"];
+            document.head.appendChild(link);
+          } else {
+            document.getElementById("font-link").href =
+              fontLinks[settings.font] || fontLinks["'Roboto', sans-serif"];
+          }
+        }
+        if (settings.fontSize) {
+          main.style.fontSize = settings.fontSize + "px";
+        } else {
+          main.style.fontSize = "18px";
+        }
+        if (settings.bgColor) {
+          document.documentElement.style.setProperty("--bg-color", settings.bgColor);
+          main.style.backgroundColor = settings.bgColor;
+        }
+        if (settings.textColor) {
+          document.documentElement.style.setProperty("--text-color", settings.textColor);
+          main.style.color = settings.textColor;
+        }
+        if (settings.animSpeed) {
+          document.documentElement.style.setProperty(
+            "--anim-speed",
+            settings.animSpeed + "s"
+          );
+        }
+      }
+
+      // Render functions
+      function renderHome() {
+        currentPage = "home";
+        main.innerHTML = "";
+        const template = document.getElementById("page-home");
+        const clone = template.content.cloneNode(true);
+        main.appendChild(clone);
+
+        // Add event listeners to topic buttons
+        main.querySelectorAll("button[data-topic]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const topic = btn.getAttribute("data-topic");
+            renderContent(topic);
+          });
+        });
+      }
+
+      function renderContent(topic) {
+        currentPage = "content";
+        currentTopic = topic;
+        main.innerHTML = "";
+        const template = document.getElementById("page-content");
+        const clone = template.content.cloneNode(true);
+        main.appendChild(clone);
+
+        const contentTitle = main.querySelector("#content-title");
+        const contentBody = main.querySelector("#content-body");
+        const btnBack = main.querySelector("#btn-back");
+        const btnBookmark = main.querySelector("#btn-bookmark");
+        const bookmarkText = main.querySelector("#bookmark-text");
+        const btnNotesToggle = main.querySelector("#btn-notes-toggle");
+        const notesArea = main.querySelector("#notes-area");
+        const searchInput = main.querySelector("#search-content");
+
+        // Set title
+        contentTitle.textContent = ebookContent[topic].title;
+
+        // Render content sections
+        function renderSections(filter = "") {
+          contentBody.innerHTML = "";
+          const sections = ebookContent[topic].sections;
+          const filterLower = filter.toLowerCase();
+
+          sections.forEach((section, idx) => {
+            // Filter by heading or paragraphs or tips or quotes
+            const combinedText =
+              section.heading +
+              " " +
+              section.paragraphs.join(" ") +
+              (section.tips ? section.tips.join(" ") : "") +
+              (section.quotes ? section.quotes.join(" ") : "");
+            if (!combinedText.toLowerCase().includes(filterLower)) return;
+
+            const sectionEl = document.createElement("article");
+            sectionEl.className = "mb-8";
+
+            const h3 = document.createElement("h3");
+            h3.className = "text-2xl font-playfair mb-3 drop-shadow-md";
+            h3.textContent = section.heading;
+            sectionEl.appendChild(h3);
+
+            section.paragraphs.forEach((p) => {
+              const pEl = document.createElement("p");
+              pEl.className = "mb-3";
+              pEl.textContent = p;
+              sectionEl.appendChild(pEl);
+            });
+
+            if (section.tips) {
+              const tipsTitle = document.createElement("h4");
+              tipsTitle.className = "text-xl font-semibold mb-2 mt-4";
+              tipsTitle.textContent = "Tips:";
+              sectionEl.appendChild(tipsTitle);
+
+              const ul = document.createElement("ul");
+              ul.className = "list-disc list-inside space-y-1";
+              section.tips.forEach((tip) => {
+                const li = document.createElement("li");
+                li.textContent = tip;
+                ul.appendChild(li);
+              });
+              sectionEl.appendChild(ul);
+            }
+
+            if (section.quotes) {
+              const quotesTitle = document.createElement("h4");
+              quotesTitle.className = "text-xl font-semibold mb-2 mt-4";
+              quotesTitle.textContent = "Kutipan Inspiratif:";
+              sectionEl.appendChild(quotesTitle);
+
+              section.quotes.forEach((quote) => {
+                const blockquote = document.createElement("blockquote");
+                blockquote.className =
+                  "border-l-4 border-pink-400 pl-4 italic text-pink-300 mb-3";
+                blockquote.textContent = quote;
+                sectionEl.appendChild(blockquote);
+              });
+            }
+
+            contentBody.appendChild(sectionEl);
+          });
+
+          if (contentBody.innerHTML.trim() === "") {
+            contentBody.innerHTML =
+              '<p class="italic text-center text-gray-300">Tidak ada hasil pencarian yang cocok.</p>';
+          }
+        }
+
+        renderSections();
+
+        // Back button
+        btnBack.addEventListener("click", () => {
+          renderHome();
+        });
+
+        // Bookmark toggle
+        function updateBookmarkUI() {
+          if (bookmarks[topic]) {
+            btnBookmark.querySelector("i").classList.remove("far");
+            btnBookmark.querySelector("i").classList.add("fas");
+            bookmarkText.textContent = "Dihapus Bookmark";
+            btnBookmark.classList.remove("text-yellow-400");
+            btnBookmark.classList.add("text-yellow-500");
+          } else {
+            btnBookmark.querySelector("i").classList.remove("fas");
+            btnBookmark.querySelector("i").classList.add("far");
+            bookmarkText.textContent = "Bookmark";
+            btnBookmark.classList.remove("text-yellow-500");
+            btnBookmark.classList.add("text-yellow-400");
+          }
+        }
+        updateBookmarkUI();
+
+        btnBookmark.addEventListener("click", () => {
+          if (bookmarks[topic]) {
+            delete bookmarks[topic];
+          } else {
+            bookmarks[topic] = true;
+          }
+          saveBookmarks();
+          updateBookmarkUI();
+        });
+
+        // Notes toggle
+        btnNotesToggle.addEventListener("click", () => {
+          if (notesArea.classList.contains("hidden")) {
+            notesArea.classList.remove("hidden");
+            notesArea.focus();
+            // Load saved note
+            notesArea.value = notes[topic] || "";
+          } else {
+            notesArea.classList.add("hidden");
+          }
+        });
+
+        // Save notes on input with debounce
+        let debounceTimer = null;
+        notesArea.addEventListener("input", () => {
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => {
+            notes[topic] = notesArea.value.trim();
+            saveNotes();
+          }, 500);
+        });
+
+        // Search content
+        searchInput.addEventListener("input", (e) => {
+          renderSections(e.target.value);
+        });
+      }
+
+      function renderSettings() {
+        currentPage = "settings";
+        main.innerHTML = "";
+        const template = document.getElementById("page-settings");
+        const clone = template.content.cloneNode(true);
+        main.appendChild(clone);
+
+        const form = main.querySelector("#settings-form");
+        const fontSelect = main.querySelector("#font-select");
+        const fontSizeInput = main.querySelector("#font-size");
+        const bgColorInput = main.querySelector("#bg-color");
+        const textColorInput = main.querySelector("#text-color");
+        const animSpeedInput = main.querySelector("#anim-speed");
+        const btnClose = main.querySelector("#btn-settings-close");
+
+        // Set current values
+        fontSelect.value = settings.font || "'Roboto', sans-serif";
+        fontSizeInput.value = settings.fontSize || 18;
+        bgColorInput.value = settings.bgColor || "#1e1e2f";
+        textColorInput.value = settings.textColor || "#f0f0f5";
+        animSpeedInput.value = settings.animSpeed || 0.4;
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          settings.font = fontSelect.value;
+          settings.fontSize = parseInt(fontSizeInput.value) || 18;
+          settings.bgColor = bgColorInput.value;
+          settings.textColor = textColorInput.value;
+          settings.animSpeed = parseFloat(animSpeedInput.value) || 0.4;
+          saveSettings();
+          applySettings();
+          renderHome();
+        });
+
+        btnClose.addEventListener("click", () => {
+          renderHome();
+        });
+      }
+
+      // Settings button event
+      btnSettings.addEventListener("click", () => {
+        renderSettings();
+      });
+
+      // Initial load
+      applySettings();
+      renderHome();
+
+      // Parallax effect on main container background image
+      // We'll add a subtle parallax effect with a decorative image behind main content
+      const parallaxImg = document.createElement("img");
+      parallaxImg.src =
+        "https://placehold.co/1200x800/png?text=Blur+Background+Parallax+Effect&font=playfair+display&font-size=48&bg=6b46c1&fg=ffffff";
+      parallaxImg.alt =
+        "Gambar latar belakang blur dengan efek paralaks berwarna ungu dan pink dengan pola abstrak modern";
+      parallaxImg.className =
+        "pointer-events-none select-none fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl opacity-20 blur-3xl z-0";
+      parallaxImg.style.transition = "transform 0.2s ease-out";
+      document.body.appendChild(parallaxImg);
+
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        parallaxImg.style.transform = `translateX(-50%) translateY(${scrollY * 0.3}px)`;
+      });
+
+      // Keyboard navigation: ESC to close notes or settings
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          if (currentPage === "content") {
+            const notesArea = main.querySelector("#notes-area");
+            if (notesArea && !notesArea.classList.contains("hidden")) {
+              notesArea.classList.add("hidden");
+              return;
+            }
+          }
+          if (currentPage === "settings") {
+            renderHome();
+          }
+        }
+      });
+    })();
+  </script>
+ </body>
+</html>
